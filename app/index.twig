@@ -1,0 +1,200 @@
+    {% extends 'default_frame.twig' %}
+    
+    {% set body_class = 'front_page' %}
+    
+    {% block stylesheet %}
+        <style>
+        </style>
+    {% endblock %}
+    
+    {% block javascript %}
+        <script>
+            $(function() {
+                $('.main_visual').slick({
+                    dots: true,
+                    arrows: false,
+                    autoplay: true,
+                    speed: 300
+                });
+            });
+        </script>
+    {% endblock javascript %}
+    
+    {% block main %}
+
+	<!-- about -->
+	<div class="about wthree-about">
+		<div class="container"> 
+			<div class="social-wthree-icons bnragile-icons">
+				<ul>
+					<li><a href="#" class="fa fa-facebook icon icon-border facebook"> </a></li>
+					<li><a href="#" class="fa fa-twitter icon icon-border twitter"> </a></li>
+					<li><a href="#" class="fa fa-google-plus icon icon-border googleplus"> </a></li>
+					<li><a href="#" class="fa fa-dribbble icon icon-border dribbble"> </a></li> 
+				</ul>
+				<div class="clearfix"> </div>
+			</div>  
+			<!-- about-section -->
+			<div class="about-section">
+				<div class="col-md-7 ab-left w3-agileits">
+					<div class="grid">
+						<div class="col-xs-6 abt-w3limg">
+							<figure class="effect-jazz">
+								<img src="{{ asset('assets/images/img1.jpg') }}" alt=""/>
+								<figcaption>
+									<h4>Good<span>Spa</span></h4>
+									<p>Lorem ipsum Nam libero tempore cum soluta nobis est at facere nobis.</p> 
+								</figcaption>			
+							</figure> 
+						</div>
+						<div class="col-xs-6 abt-w3limg">
+							<figure class="effect-jazz">
+								<img src="{{ asset('assets/images/img2.jpg') }}" alt=""/>
+								<figcaption>
+									<h4>Gym<span>Center</span></h4>
+									<p>Lorem ipsum Nam libero tempore cum soluta nobis est at facere nobis.</p> 
+								</figcaption>			
+							</figure> 
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+			   </div>
+			   <div class="col-md-5 ab-text w3-agileits">
+			        <h3 class="agileits-title">Welcome</h3> 
+					<h6>Itaque earum rerum hic tenetur a optio sapiente nihil impedit</h6>
+					<p class="wow slideInUp">Lorem ipsum Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere.Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+					<div class="start wow flipInX">
+						<a href="single.html" class="hvr-bounce-to-bottom">Get Started</a>
+					</div> 
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<!-- //about-section -->
+			<!-- about-section2 -->
+			<div class="about-section abt-w3sec2">
+				<div class="col-md-5 ab-text two w3-agileits">
+					<h3 class="agileits-title">About</h3> 
+					<h6>Itaque earum rerum hic tenetur a optio sapiente nihil impedit</h6>
+					<p>Lorem ipsum Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere.Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+					<div class="start">
+						<a href="single.html" class="hvr-bounce-to-bottom">Read more</a>
+					</div> 
+				</div>
+				<div class="col-md-7 ab-left w3-agileits">
+					<div class="grid">
+						<div class="col-xs-6 abt-w3limg">
+							<figure class="effect-jazz">
+								<img src="{{ asset('assets/images/img4.jpg') }}" alt=""/>
+								<figcaption>
+									<h4>Best<span>Salon</span></h4>  
+									<p>Lorem ipsum Nam libero tempore cum soluta nobis est at facere nobis.</p> 
+								</figcaption>			
+							</figure> 
+						</div>
+						<div class="col-xs-6 abt-w3limg">
+							<figure class="effect-jazz">
+								<img src="{{ asset('assets/images/img3.jpg') }}" alt=""/>
+								<figcaption>
+									<h4>Healthy<span>Yoga</span></h4>
+									<p>Lorem ipsum Nam libero tempore cum soluta nobis est at facere nobis.</p> 
+								</figcaption>			
+							</figure> 
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<!-- //about-section2 -->
+		</div>
+	</div>
+	<!-- //about --> 
+	<!-- services -->
+	<div class="services jarallax">
+		<div class="container">
+			<h3 class="agileits-title w3title2">Services</h3> 
+			<div class="services-w3lsrow agileits-w3layouts">
+				<div class="col-md-3 col-sm-3 col-xs-6 services-grids">  
+					<i class="fa fa-gears" aria-hidden="true"></i> 
+					<h4>Fugiat Quo</h4>
+					<p>Phasellus at placerat ante nulla adipiscing elit</p>
+				</div>
+				<div class="col-md-3 col-sm-3 col-xs-6 services-grids">
+					<div class="w3agile-servs-img">
+						<i class="fa fa-group" aria-hidden="true"></i> 
+						<h4>Voluptas </h4>
+						<p>Phasellus at placerat ante nulla adipiscing elit</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-3 col-xs-6 services-grids">
+					<div class="w3agile-servs-img">
+						<i class="fa fa-briefcase" aria-hidden="true"></i>
+						<h4>Quo fugiat</h4>
+						<p>Phasellus at placerat ante nulla adipiscing elit</p>
+					</div>
+				</div> 	
+				<div class="col-md-3 col-sm-3 col-xs-6 services-grids">
+					<div class="w3agile-servs-img">
+						<i class="fa fa-list-alt" aria-hidden="true"></i>
+						<h4>Corrupti</h4>
+						<p>Phasellus at placerat ante nulla adipiscing elit</p>
+					</div>
+				</div> 
+				<div class="clearfix"> </div>
+			</div>	 
+		</div>
+	</div>	
+	<!-- //services --> 
+	<!-- testimonial -->
+	<div class="testimonial agileits-w3layouts">
+		<div class="container"> 
+			<h3 class="agileits-title">Testimonials</h3> 
+			<div class="sap_tabs">	
+				<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">  
+					<ul class="resp-tabs-list">
+						<li class="resp-tab-item"><img src="{{ asset('assets/images/t1.jpg') }}" alt=""/></li>
+						<li class="resp-tab-item"><img src="{{ asset('assets/images/t2.jpg') }}" alt=""/></li>
+						<li class="resp-tab-item"><img src="{{ asset('assets/images/t3.jpg') }}" alt=""/></li>
+						<li class="resp-tab-item"><img src="{{ asset('assets/images/t4.jpg') }}" alt=""/></li>
+						<li class="resp-tab-item"><img src="{{ asset('assets/images/t5.jpg') }}" alt=""/></li>
+					</ul>
+					<div class="resp-tabs-container">
+						<div class="tab-1 resp-tab-content">				
+							<div class="view view-first"> 
+								<p>Donec libero dui, scelerisque ac augue id, tristique ullamcorper elit. Nam ultrices, lacus vitae adipiscing aliquet, metus ipsum imperdiet libero, vitae dignissim sapien diam ac nibh convallis.</p>
+								<h5>Filan Isteku</h5>
+							</div>
+						</div>
+						<div class="tab-1 resp-tab-content">
+							<div class="view view-first"> 
+								<p>Scelerisque ac augue id Donec libero dui, tristique ullamcorper elit. Nam ultrices, lacus vitae adipiscing aliquet, metus ipsum imperdiet libero, vitae dignissim sapien diam ac nibh convallis.</p>
+								<h5>Ullam Firose </h5>
+							</div>
+						</div>
+						<div class="tab-1 resp-tab-content">
+							<div class="view view-first"> 
+								<p>Nam ultrices lacus vitae adipiscing aliquet, metus ipsum imperdiet libero, vitae dignissim sapientristique Donec libero dui, scelerisque ac augue id,  ullamcorper elit,diam ac nibh convallis.</p>
+								<h5>Sque Augue</h5>
+							</div>
+						</div>
+						<div class="tab-1 resp-tab-content">
+							<div class="view view-first"> 
+								<p>Nam ultrices lacus vitae adipiscing aliquet, metus ipsum imperdiet libero, vitae dignissim sapientristique Donec libero dui, scelerisque ac augue id,  ullamcorper elit,diam ac nibh convallis.</p>
+								<h5>Metus Ipsum</h5>
+							</div>
+						</div>
+						<div class="tab-1 resp-tab-content">
+							<div class="view view-first"> 
+								<p>Scelerisque ac augue id Donec libero dui, tristique ullamcorper elit. Nam ultrices, lacus vitae adipiscing aliquet, metus ipsum imperdiet libero, vitae dignissim sapien diam ac nibh convallis.</p>
+								<h5>Ullam Firose </h5>
+							</div>
+						</div> 
+					</div> 
+					<div class="clearfix"></div>
+				</div>	 
+			</div>	 
+		</div>
+	</div>					
+	<!-- //testimonial --> 
+    {% endblock %}
+    

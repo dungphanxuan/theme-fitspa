@@ -1,0 +1,143 @@
+<!-- reservation -->
+<div class="reservation-info jarallax"> 
+    <div class="reservation">
+        <div class="container">			
+            <h2 class="agileits-title w3title2">Make a Reservation</h2>  
+            <div class="book-reservation">
+                <form action="#" method="post">  
+                    <div class="col-md-4 form-left">
+                        <label><i class="glyphicon glyphicon-calendar"></i> Date :</label>
+                        <input type="text" class="date" id="datepicker" name="date" placeholder="Date" required="">
+                    </div>
+                    <div class="col-md-4 form-left">
+                        <label><i class="glyphicon glyphicon-user"></i> No.of People :</label>
+                        <select class="form-control">
+                            <option>1 Person</option>
+                            <option>2 People</option>
+                            <option>3 People</option>
+                            <option>4 People</option>
+                            <option>5 People</option>
+                            <option>More</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 form-right">
+                        <label><i class="glyphicon glyphicon-time"></i> Time :</label>
+                        <input type="text" name="Time" class="timepicker" placeholder="Time" required="">
+                    </div>
+                    <div class="clearfix"> </div>
+                    <div class="make">
+                        <input type="submit" value="Make a Reservation">
+                    </div>
+                </form> 
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>	
+<!-- //reservation -->
+<!-- Time select -->
+<script type="text/javascript" src="{{ asset('assets/js/wickedpicker.js') }}"></script>
+<script type="text/javascript">
+    $('.timepicker').wickedpicker({twentyFour: false});
+</script>
+<!-- //Time select --> 
+<!-- Calendar --> 
+<script src="{{ asset('assets/js/jquery-ui.js') }}"></script>
+<script>
+$(function() {
+    $( "#datepicker" ).datepicker();
+});
+</script> 
+<!-- //Calendar --> 
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <div class="col-md-4 footer-grids">
+            <h3>Review</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sheets containing lorem lpsum passages sed do consectetur adipisicing elit.</p>
+        </div> 
+        <div class="col-md-3 footer-grids"> 
+            <h3>Contact Me</h3>
+            <p>123 NewYork City USA.<br>
+                <span>Office: 908-0000</span>
+                <span>Support to: <a href="mailto:info@example.com">mail@example.com</a></span>
+            </p>
+        </div>
+        <div class="col-md-5 footer-grids">
+            <h3>Subscribe</h3>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+            <form action="#" method="post">
+                <input type="email" name="email" placeholder="Enter your email" required="">
+                <input type="submit" value="">
+            </form> 
+        </div>
+        <div class="clearfix"> </div> 
+    </div>
+</div>
+<div class="footer-copy">
+    <div class="container">
+        <p>© 2017 Fit&Spa. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+    </div>
+</div>
+<!-- //footer --> 
+<!-- ResponsiveTabs -->
+<script src="{{ asset('assets/js/easyResponsiveTabs.js') }}" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#horizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion           
+            width: 'auto', //auto or any width like 600px
+            fit: true   // 100% fit in a container
+        });
+    });
+</script>
+<!-- //ResponsiveTabs --> 
+<!-- video pg plugin --> 
+<script src="{{ asset('assets/js/jquery.vide.min.js') }}"></script>
+<!-- //video pg plugin --> 
+<!-- start-smooth-scrolling -->
+<script type="text/javascript" src="{{ asset('assets/js/move-top.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/easing.js') }}"></script>	
+<script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){		
+                event.preventDefault();
+        
+        $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+            });
+        });
+</script>
+<!-- //end-smooth-scrolling -->	
+<!-- smooth-scrolling-of-move-up -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+        var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear' 
+        };
+        */
+        
+        $().UItoTop({ easingType: 'easeOutQuart' });
+        
+    });
+</script>
+<!-- //smooth-scrolling-of-move-up -->  
+<!-- jarallax effect -->
+<script src="{{ asset('assets/js/SmoothScroll.min.js') }}"></script>
+<script src="{{ asset('assets/js/jarallax.js') }}"></script> 
+<script type="text/javascript">
+    /* init Jarallax */
+    $('.jarallax').jarallax({
+        speed: 0.5,
+        imgWidth: 1366,
+        imgHeight: 768
+    })
+</script>   
+<!-- //jarallax effect -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ asset('assets/js/bootstrap.js') }}"></script>
