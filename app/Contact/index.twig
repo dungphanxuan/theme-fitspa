@@ -18,135 +18,92 @@ file that was distributed with this source code.
 
 {% block main %}
 
-    <div class="ec-contactRole">
-        <div class="ec-pageHeader">
-            <h1>{{ 'front.contact.title'|trans }}</h1>
-        </div>
-        <div class="ec-off1Grid">
-            <div class="ec-off1Grid__cell">
-                <form method="post" action="{{ url('contact') }}" class="h-adr" novalidate>
-                    <span class="p-country-name" style="display:none;">{{ 'common.shipping.location.japan'|trans }}</span>
-                    {{ form_widget(form._token) }}
-                    <p class="ec-para-normal">{{ 'front.contact.inquiry_notice'|trans|nl2br }}</p>
-                    <div class="ec-borderedDefs">
-                        <dl>
-                            <dt>
-                                {{ form_label(form.name, 'common.name', { 'label_attr': { 'class': 'ec-label' }}) }}
-                            </dt>
-                            <dd>
-                                <div class="ec-halfInput{{ has_errors(form.name.name01, form.name.name02) ? ' error' }}">
-                                    {{ form_widget(form.name.name01, {'attr': { 'placeholder': 'common.last_name' }}) }}
-                                    {{ form_widget(form.name.name02, {'attr': { 'placeholder': 'common.first_name' }}) }}
-                                    {{ form_errors(form.name.name01) }}
-                                    {{ form_errors(form.name.name02) }}
-                                </div>
-                            </dd>
-                        </dl>
-                        {{ form_widget(form.kana.kana01, { type : 'hidden', value: 'カナ'}) }}
-                        {{ form_widget(form.kana.kana02, { type : 'hidden', value: 'カナ'}) }}
-                        <dl>
-                            <dt>
-                                {{ form_label(form.postal_code) }}
-                            </dt>
-                            <dd>
-                                <div class="ec-zipInput{{ has_errors(form.postal_code) ? ' error' }}">
-                                    {{ form_widget(form.postal_code) }}
-                                    {{ form_errors(form.postal_code) }}
-                                </div>
-                                <div class="ec-zipInputHelp">
-                                    <div class="ec-zipInputHelp__icon">
-                                        <div class="ec-icon"><img src="{{ asset('assets/icon/question-white.svg') }}" alt="">
-                                        </div>
-                                    </div><a href="{{ url('help_postalcode') }}" target="_blank"><span>{{ 'common.search_postal_code'|trans }}</span></a>
-                                </div>
-                                {{ form_errors(form.postal_code) }}
-                            </dd>
-                        </dl>
-
-                        <dl>
-                            <dt>
-                                {{ form_label(form.address, 'common.address', { 'label_attr': { 'class': 'ec-label' }}) }}
-                            </dt>
-                            <dd>
-                                <div class="ec-select{{ has_errors(form.address.pref) ? ' error' }}">
-                                    {{ form_widget(form.address.pref) }}
-                                    {{ form_errors(form.address.pref) }}
-                                </div>
-                                <div class="ec-input{{ has_errors(form.address.addr01) ? ' error' }}">
-                                    {{ form_widget(form.address.addr01, { 'attr': { 'placeholder': 'common.address_sample_01' }}) }}
-                                    {{ form_errors(form.address.addr01) }}
-                                </div>
-                                <div class="ec-input{{ has_errors(form.address.addr02) ? ' error' }}">
-                                    {{ form_widget(form.address.addr02,  { 'attr': { 'placeholder': 'common.address_sample_02' }}) }}
-                                    {{ form_errors(form.address.addr02) }}
-                                </div>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                {{ form_label(form.phone_number, 'common.phone_number', { 'label_attr': { 'class': 'ec-label' }}) }}
-                            </dt>
-                            <dd>
-                                <div class="ec-telInput{{ has_errors(form.phone_number) ? ' error' }}">
-                                    {{ form_widget(form.phone_number) }}
-                                    {{ form_errors(form.phone_number) }}
-                                </div>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                {{ form_label(form.email, 'common.mail_address', { 'label_attr': { 'class': 'ec-label' }}) }}
-                            </dt>
-                            <dd>
-                                <div class="ec-input{{ has_errors(form.email) ? ' error' }}">
-                                    {{ form_widget(form.email) }}
-                                    {{ form_errors(form.email) }}
-                                </div>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                {{ form_label(form.email, 'front.contact.inquiry_contents', { 'label_attr': { 'class': 'ec-label' }}) }}
-                            </dt>
-                            <dd>
-                                <div class="ec-input{{ has_errors(form.contents) ? ' error' }}">
-                                    {{ form_widget(form.contents) }}
-                                    {{ form_errors(form.contents) }}
-                                </div>
-                                <p>{{ 'front.contact.order_notice'|trans }}</p>
-                            </dd>
-                        </dl>
-                        {# エンティティ拡張の自動出力 #}
-                        {% for f in form if f.vars.eccube_form_options.auto_render %}
-                            {% if f.vars.eccube_form_options.form_theme %}
-                                {% form_theme f f.vars.eccube_form_options.form_theme %}
-                                {{ form_row(f) }}
-                            {% else %}
-                                <dl>
-                                    <dt>
-                                        {{ form_label(f) }}
-                                    </dt>
-                                    <dd>
-                                        <div class="{{ f.vars.eccube_form_options.style_class }}{{ has_errors(f) ? ' error' }}">
-                                            {{ form_widget(f) }}
-                                            {{ form_errors(f) }}
-                                        </div>
-                                    </dd>
-                                </dl>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    <div class="ec-RegisterRole__actions">
-                        <div class="ec-off4Grid">
-                            <div class="ec-off4Grid__cell">
-                                <button type="submit" class="ec-blockBtn--action" name="mode" value="confirm">{{ 'common.go_to_confirm'|trans }}
-                                </button>
+	<!-- contact -->
+	<div class="contact">
+            <div class="container">
+                <h2 class="agileits-title">Contact Us</h2>
+                <div class="col-md-8 w3_agile_mail_left">
+                    <div class="agileits_mail_grid_right1 agile_mail_grid_right1">
+                        <form action="#" method="post">
+                            <span>
+                                <i>Name</i>
+                                <input type="text" name="Name" placeholder=" " required="">
+                            </span>
+                            <span>
+                                <i>Email</i>
+                                <input type="email" name="Email" placeholder=" " required="">
+                            </span>
+                            <span>
+                                <i>Subject</i>
+                                <input type="text" name="Subject" placeholder=" " required="">
+                            </span>
+                            <span>
+                                <i>Message</i>
+                                <textarea name="Message" placeholder=" " required=""></textarea>
+                            </span>
+                            <div class="w3_submit">
+                                <input type="submit" value="Submit Now">
                             </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-4 w3_agile_mail_right">
+                    <div class="w3_agileits_mail_right_grid">
+                        <h4>About Us </h4>
+                        <p>Donec libero lectus, feugiat vel elit nec, mattis tempor mi ante.</p>
+                        <h5>Follow Us On</h5>
+                        <div class="social-wthree-icons">
+                            <ul>
+                                <li><a href="#" class="fa fa-facebook icon icon-border facebook"> </a></li>
+                                <li><a href="#" class="fa fa-twitter icon icon-border twitter"> </a></li>
+                                <li><a href="#" class="fa fa-google-plus icon icon-border googleplus"> </a></li>
+                                <li><a href="#" class="fa fa-dribbble icon icon-border dribbble"> </a></li> 
+                            </ul>
+                            <div class="clearfix"> </div>
+                        </div> 
+                        <div class="w3_agileits_mail_right_grid_pos">
+                            <img src="{{ asset('assets/images/t3.jpg') }}" alt=" " class="img-responsive" />
                         </div>
                     </div>
-                </form>
+                    <div class="w3_agileits_mail_right_grid_main">
+                        <div class="w3layouts_mail_grid_left">
+                            <div class="w3layouts_mail_grid_left1 hvr-radial-out">
+                                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            </div>
+                            <div class="w3layouts_mail_grid_left2">
+                                <h3>Mail Us</h3>
+                                <a href="mailto:info@example.com">info@example.com</a>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="w3layouts_mail_grid_left">
+                            <div class="w3layouts_mail_grid_left1 hvr-radial-out">
+                                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                            </div>
+                            <div class="w3layouts_mail_grid_left2">
+                                <h3>Address</h3>
+                                <p>My Company 8907 Sydney.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="w3layouts_mail_grid_left">
+                            <div class="w3layouts_mail_grid_left1 hvr-radial-out">
+                                <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                            </div>
+                            <div class="w3layouts_mail_grid_left2">
+                                <h3>Phone</h3>
+                                <p>+(0121) 121 121</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="clearfix"> </div>
+                </div>
             </div>
         </div>
-    </div>
-
+        <div class="map-grid">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0804734635735!2d106.66400171519093!3d10.805148492302045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175292e081b95d7%3A0xeb029dbbd65f5cb7!2sTPS+Software+Corporation!5e0!3m2!1sen!2s!4v1563264693883!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+        <!-- contact --> 
 {% endblock %}

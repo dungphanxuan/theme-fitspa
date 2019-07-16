@@ -1,5 +1,9 @@
 <!-- banner --> 
-<div class="video jarallax" data-vide-bg="video/spa">    
+{% if (app.request.uri == url('homepage')) %}
+<div class="video jarallax" data-vide-bg="{{ asset('assets/video/spa') }}">
+{% else %}
+<div class="jarallax about-w3banner">
+{% endif %}
     <!-- header --> 
     <div class="w3header">
         <div class="container">
@@ -11,21 +15,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <h1><a  href="index.html"> Fit&Spa </a></h1> 
+                    <h1><a  href="{{ url('homepage') }}"> Fit&Spa </a></h1> 
                 </div>
                 <!-- navbar-header -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="about.html">About</a></li> 
-                        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="icons.html">Web Icons</a></li>
-                                <li><a href="codes.html">Short Codes</a></li>
-                            </ul>
-                        </li> 
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="{{ url('homepage') }}">Home</a></li>
+                        <li><a href="{{ url('help_about') }}">{{ 'front.about.title' | trans }}</a></li> 
+                        <li><a href="{{ url('product_list') }}">{{ 'common.services' | trans }}</a></li>
+                        <li><a href="{{ url('contact') }}">{{ 'front.contact.title' | trans }}</a></li>
+                        <li><a href="{{ url('mypage_login') }}">{{ 'common.login' | trans }}</a></li>
                     </ul> 
                     <div class="clearfix"> </div>	
                 </div>
@@ -33,6 +32,7 @@
         </div>  
     </div>
     <!-- //header -->  
+    {% if (app.request.uri == url('homepage')) %}
     <!-- banner-text -->
     <div class="banner-w3ltext page-header__content w3layouts">  
         <div class="text-bg">  
@@ -48,6 +48,7 @@
         </div>   
         <p class="bnrw3-agiletext">Consequatur aut perferendis doloribus asperiores repellat. Fusce eu semper lacus, eget placerat mauris. Sed lectus tellus feugiat porttitor nulla. </p>
     </div>     
-    <!-- //banner-text -->  	
+    <!-- //banner-text -->  
+    {% endif %}	
 </div>	 
 <!-- //banner --> 
