@@ -12,60 +12,46 @@ file that was distributed with this source code.
 
 {% set body_class = 'mypage' %}
 
+{% block javascript %}
+<script>
+    $(function() {
+        $('.form-control').removeClass('form-control');
+    })
+</script>
+{% endblock %}
 {% block main %}
-    <div class="ec-role">
-        <div class="ec-pageHeader">
-            <h1>{{ 'common.login'|trans }}</h1>
-        </div>
-        <div class="ec-off2Grid">
-            <div class="ec-off2Grid__cell">
-                <form name="login_mypage" id="login_mypage" method="post" action="{{ url('mypage_login') }}">
-                    <div class="ec-login">
-                        <div class="ec-login__icon">
-                            <div class="ec-icon"><img src="{{ asset('assets/icon/user.svg') }}" alt=""></div>
-                        </div>
-                        <div class="ec-login__input">
-                            <div class="ec-input">
+<div class="contact">
+            <div class="container">
+                <h2 class="agileits-title">{{ 'common.login'|trans }}</h2>
+                <div class="col-md-8 col-md-offset-2 w3_agile_mail_left">
+                    <div class="agileits_mail_grid_right1 agile_mail_grid_right1">
+                        <form name="login_mypage" id="login_mypage" method="post" action="{{ url('mypage_login') }}">
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                            <span>
+                                <i>{{'common.mail_address' | trans}}</i>
                                 {{ form_widget(form.login_email, {'attr': {'style' : 'ime-mode: disabled;', 'placeholder' : 'common.mail_address', 'autofocus': true}}) }}
+                            </span>
+                            <span>
+                                <i>{{'common.password' | trans}}</i>
                                 {{ form_widget(form.login_pass,  {'attr': {'placeholder' : 'common.password' }}) }}
-                            </div>
-                            {% if BaseInfo.option_remember_me %}
-                            <div class="ec-checkbox">
-                                <label>
-                                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                                        <input type="hidden" name="login_memory" value="1">
-                                    {% else %}
-                                        {{ form_widget(form.login_memory, { 'label': 'common.remember_me'|trans }) }}
-                                    {% endif %}
-                                </label>
-                            </div>
-                            {% endif %}
-                            {% for reset_complete in app.session.flashbag.get('password_reset_complete') %}
-                                <p>{{ reset_complete|trans }}</p>
-                            {% endfor %}
+                            </span>
                             {% if error %}
-                                <p class="ec-errorMessage">{{ error.messageKey|trans(error.messageData, 'validators')|nl2br }}</p>
+                                <p class="text-danger">{{ error.messageKey|trans(error.messageData, 'validators')|nl2br }}</p>
                             {% endif %}
-                        </div>
-                        <div class="ec-grid2">
-                            <div class="ec-grid2__cell">
-                                <div class="ec-login__actions">
-                                    <button type="submit"
-                                            class="ec-blockBtn--cancel">{{ 'common.login'|trans }}</button>
+                            <div class="w3_submit">
+                                <input type="submit" value="{{'common.login'|trans }}" />
+                                <div class="ec-grid2__cell">
+                                    <div class="ec-login__link"><a class="ec-link"
+                                                                href="{{ url('forgot') }}">{{ 'common.forgot_login'|trans }}</a>
+                                    </div>
+                                    <div class="ec-login__link"><a class="ec-link"
+                                                                href="{{ url('entry') }}">{{ 'common.signup'|trans }}</a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="ec-grid2__cell">
-                                <div class="ec-login__link"><a class="ec-link"
-                                                               href="{{ url('forgot') }}">{{ 'common.forgot_login'|trans }}</a>
-                                </div>
-                                <div class="ec-login__link"><a class="ec-link"
-                                                               href="{{ url('entry') }}">{{ 'common.signup'|trans }}</a>
-                                </div>
-                            </div>
-                        </div>
+                        </form>
                     </div>
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                </form>
+                </div>
             </div>
         </div>
     </div>

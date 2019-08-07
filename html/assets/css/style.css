@@ -502,7 +502,7 @@ h3.agileits-title.w3title2,h2.agileits-title.w3title2 {
     margin-right: 5px;
     color: #ff5722;
 }
-.book-reservation input[type="text"],.book-reservation select.form-control  {
+.book-reservation select,.book-reservation input[type="email"],.book-reservation input[type="text"],.book-reservation select.form-control  {
     width: 100%;
     color: #fff;
     outline: none;
@@ -1094,7 +1094,7 @@ ul.simplefilter {
     letter-spacing: 3px;
     display: block;
 }
-.agileits_mail_grid_right1 input[type="text"],.agileits_mail_grid_right1 input[type="email"],.agileits_mail_grid_right1 textarea{
+.agileits_mail_grid_right1 input[type="password"],.agileits_mail_grid_right1 input[type="text"],.agileits_mail_grid_right1 input[type="email"],.agileits_mail_grid_right1 textarea{
 	outline: none;
     width: 100%;
     background: #fff;
@@ -2066,7 +2066,7 @@ h3.agileits-title, h2.agileits-title {
 .book-reservation select.form-control { 
     height: 50px; 
 }
-.book-reservation input[type="text"],.book-reservation select.form-control  { 
+.book-reservation select,.book-reservation input[type="email"],.book-reservation input[type="text"],.book-reservation select.form-control  { 
     padding: 0.7em 1em; 
 }
 .navbar-default .navbar-nav > li > a { 
@@ -2355,10 +2355,10 @@ h4.w3ls-title {
 .write-reply input[type="text"], .write-reply input[type="email"], .write-reply textarea { 
     font-size: 0.9em; 
 }
-.book-reservation input[type="text"],.book-reservation select.form-control  { 
+.book-reservation select,.book-reservation input[type="email"],.book-reservation input[type="text"],.book-reservation select.form-control  { 
     font-size: 0.9em; 
 }
-.agileits_mail_grid_right1 input[type="text"], .agileits_mail_grid_right1 input[type="email"], .agileits_mail_grid_right1 textarea {
+.agileits_mail_grid_right1 input[type="password"],.agileits_mail_grid_right1 input[type="text"], .agileits_mail_grid_right1 input[type="email"], .agileits_mail_grid_right1 textarea {
     font-size: 0.9em; 
 }
 .agileits_mail_grid_right1 span i {

@@ -1,62 +1,71 @@
-{% if '/mypage' not in app.request.pathInfo %}
+{% if '/mypage' in app.request.pathInfo %}
+{% set services = repository('Eccube\\Entity\\Product').findAll() %}
+{% set email = '' %}
+{% set phone_number = '' %}
+{% if is_granted('ROLE_USER') %}
+    {% set email = app.user.email %}
+    {% set phone_number = app.user.phone_number %}
+{% endif %}
+<div id="successModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content start">
+      <div class="modal-header  modal-primary">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="agileits-title">{{ 'front.tpsbooking.str.make_a_reservation' | trans }}</h4>
+      </div>
+      <div class="modal-body">
+        <div>{{ 'front.tpsbooking.book_success' | trans }}</div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- reservation -->
-<div class="reservation-info jarallax"> 
+<div class="reservation-info jarallax">
     <div class="reservation">
-        <div class="container">			
-            <h2 class="agileits-title w3title2">Make a Reservation</h2>  
+        <div class="container">
+            <h2 class="agileits-title w3title2">{{ 'front.tpsbooking.str.make_a_reservation' | trans }}</h2>
             <div class="book-reservation">
-                <form action="#" method="post">  
-                    <div class="col-md-4 form-left">
-                        <label><i class="glyphicon glyphicon-calendar"></i> Date :</label>
-                        <input type="text" class="date" id="datepicker" name="date" placeholder="Date" required="">
-                    </div>
-                    <div class="col-md-4 form-left">
-                        <label><i class="glyphicon glyphicon-user"></i> No.of People :</label>
-                        <select class="form-control">
-                            <option>1 Person</option>
-                            <option>2 People</option>
-                            <option>3 People</option>
-                            <option>4 People</option>
-                            <option>5 People</option>
-                            <option>More</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 form-right">
-                        <label><i class="glyphicon glyphicon-time"></i> Time :</label>
-                        <input type="text" name="Time" class="timepicker" placeholder="Time" required="">
-                    </div>
-                    <div class="clearfix"> </div>
-                    <div class="make">
-                        <input type="submit" value="Make a Reservation">
-                    </div>
-                </form> 
+                <div class="col-md-3 form-left">
+                    <label><i class="glyphicon glyphicon-calendar"></i>{{'front.tpsbooking.str.date' | trans }}</label>
+                    <input value="{{ 'now' | date('d/m/Y') }}" type="text" class="date" id="datepicker" name="date" placeholder="Date" required="">
+                </div>
+                <div class="col-md-3 form-left">
+                    <label><i class="glyphicon glyphicon-tag"></i>{{'front.tpsbooking.str.service' | trans }}</label>
+                    <select name="product_id" name="p_num" class="form-control">
+                        {% for service in services %}
+                            <option {% if Product is defined %} {{ Product.id == service.id ? "selected" : "" }} {% endif %} value="{{service.id}}" >{{service.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-3 form-left">
+                    <label><i class="glyphicon glyphicon-envelope"></i>{{'front.tpsbooking.str.email' | trans }}</label>
+                    <input value="{{email}}" name="email" type="email" class="form-control" placeholder="{{'front.tpsbooking.placeholder.email' | trans}}"/>
+                </div>
+                <div class="col-md-3 form-left">
+                    <label><i class="glyphicon glyphicon-earphone"></i>{{'front.tpsbooking.str.phone_number' | trans }}</label>
+                    <input value="{{phone_number}}" name="phone_number" type="text" class="form-control" placeholder="{{'front.tpsbooking.placeholder.phone_number' | trans}}"/>
+                </div>
+                <div class="clearfix"> </div>
+                <div class="make">
+                    {% if is_granted('ROLE_USER') %}
+                        <input value="{{app.user.id}}" name="customer_id" type="hidden" />
+                    {% endif %}
+                    <input class="submit" type="submit" value="{{ 'front.tpsbooking.str.make_a_reservation' | trans }}">
+                </div>
             </div>
-            <div class="clearfix"> </div>
+            <div class="clearfix"></div>
         </div>
     </div>
-</div>	
+</div>
 <!-- //reservation -->
-<!-- Time select -->
-<script type="text/javascript" src="{{ asset('assets/js/wickedpicker.js') }}"></script>
-<script type="text/javascript">
-    $('.timepicker').wickedpicker({twentyFour: false});
-</script>
-<!-- //Time select --> 
-<!-- Calendar --> 
-<script src="{{ asset('assets/js/jquery-ui.js') }}"></script>
-<script>
-$(function() {
-    $( "#datepicker" ).datepicker();
-});
-</script> 
-<!-- //Calendar --> 
 <!-- footer -->
 <div class="footer">
     <div class="container">
         <div class="col-md-4 footer-grids">
             <h3>Review</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sheets containing lorem lpsum passages sed do consectetur adipisicing elit.</p>
-        </div> 
+        </div>
         <div class="col-md-3 footer-grids"> 
             <h3>Contact Me</h3>
             <p>123 NewYork City USA.<br>
@@ -70,9 +79,9 @@ $(function() {
             <form action="#" method="post">
                 <input type="email" name="email" placeholder="Enter your email" required="">
                 <input type="submit" value="">
-            </form> 
+            </form>
         </div>
-        <div class="clearfix"> </div> 
+        <div class="clearfix"> </div>
     </div>
 </div>
 {% endif %}
@@ -81,55 +90,64 @@ $(function() {
         <p>© 2017 Fit&Spa. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
     </div>
 </div>
-<!-- //footer --> 
+<!-- //footer -->
+<!-- Time select -->
+<script type="text/javascript" src="{{ asset('assets/js/wickedpicker.min.js') }}"></script>
+<!-- //Time select -->
+<!-- Calendar -->
+<script src="{{ asset('assets/js/jquery-ui.js') }}"></script>
+<script>
+    $(function() {
+        $('.timepicker').wickedpicker({
+            now: '{{ 'now' | date('H:00') }}',
+            title: '{{ 'front.booking_hour' | trans }}',
+            twentyFour: true,
+            minutesInterval: 30,
+            timeSeparator: ':'
+        });
+        $( "#datepicker" ).datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+    });
+</script>
+<!-- //Calendar -->
 <!-- ResponsiveTabs -->
 <script src="{{ asset('assets/js/easyResponsiveTabs.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#horizontalTab').easyResponsiveTabs({
-            type: 'default', //Types: default, vertical, accordion           
+            type: 'default', //Types: default, vertical, accordion
             width: 'auto', //auto or any width like 600px
             fit: true   // 100% fit in a container
         });
     });
 </script>
-<!-- //ResponsiveTabs --> 
-<!-- video pg plugin --> 
+<!-- //ResponsiveTabs -->
+<!-- video pg plugin -->
 <script src="{{ asset('assets/js/jquery.vide.min.js') }}"></script>
-<!-- //video pg plugin --> 
+<!-- //video pg plugin -->
 <!-- start-smooth-scrolling -->
 <script type="text/javascript" src="{{ asset('assets/js/move-top.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/js/easing.js') }}"></script>	
+<script type="text/javascript" src="{{ asset('assets/js/easing.js') }}"></script>
 <script type="text/javascript">
         jQuery(document).ready(function($) {
-            $(".scroll").click(function(event){		
+            $(".scroll").click(function(event){
                 event.preventDefault();
-        
         $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
             });
         });
 </script>
-<!-- //end-smooth-scrolling -->	
+<!-- //end-smooth-scrolling -->
 <!-- smooth-scrolling-of-move-up -->
 <script type="text/javascript">
     $(document).ready(function() {
-        /*
-        var defaults = {
-            containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
-            scrollSpeed: 1200,
-            easingType: 'linear' 
-        };
-        */
-        
         $().UItoTop({ easingType: 'easeOutQuart' });
-        
     });
 </script>
-<!-- //smooth-scrolling-of-move-up -->  
+<!-- //smooth-scrolling-of-move-up -->
 <!-- jarallax effect -->
 <script src="{{ asset('assets/js/SmoothScroll.min.js') }}"></script>
-<script src="{{ asset('assets/js/jarallax.js') }}"></script> 
+<script src="{{ asset('assets/js/jarallax.js') }}"></script>
 <script type="text/javascript">
     /* init Jarallax */
     $('.jarallax').jarallax({
@@ -137,9 +155,50 @@ $(function() {
         imgWidth: 1366,
         imgHeight: 768
     })
-</script>   
+</script>
 <!-- //jarallax effect -->
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
+<script>
+$(function() {
+    $('#successModal').on('shown.bs.modal', function() {
+        setTimeout(function() {
+            window.location.reload();
+        }, 1000);
+    });
+    $('.book-reservation .submit').click(function() {
+        date = $(this).parents('.book-reservation').find('[name="date"]').val();
+        product_id = $(this).parents('.book-reservation').find('[name="product_id"]').val();
+        email = $(this).parents('.book-reservation').find('[name="email"]').val();
+        phone_number = $(this).parents('.book-reservation').find('[name="phone_number"]').val();
+        customer_id = $(this).parents('.book-reservation').find('[name="customer_id"]').val();
+        if (!email) {
+            alert('{{'front.tpsbooking.message.email_is_required' | trans}}');
+            $(this).parents('.book-reservation').find('[name="email"]').focus();
+            return;
+        }
+        if (!phone_number) {
+            alert('{{'front.tpsbooking.message.phone_number_is_required' | trans}}');
+            $(this).parents('.book-reservation').find('[name="phone_number"]').focus();
+            return;
+        }
+        if (!confirm('{{'front.tpsbooking.are_your_sure' | trans}}')) {
+            return;
+        }
+        $.post('{{ url('front_tpsbooking_submit') }}', {
+            date: date,
+            product_id: product_id,
+            email: email,
+            phone_number: phone_number,
+            customer_id: customer_id,
+        }, function(res) {
+            if (res.error == 0) {
+                $('#successModal').modal('show');
+            }
+        });
+
+    });
+})
+</script>

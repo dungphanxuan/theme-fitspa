@@ -56,7 +56,6 @@ file that was distributed with this source code.
                     'ECCUBE-CSRF-TOKEN': $('meta[name="eccube-csrf-token"]').attr('content')
                 }
             });
-            console.log();
             $('.nav.navbar-nav li').each(function() {
                 if ('{{ app.request.uri }}' == $(this).find('a').attr('href')) {
                     $(this).find('a').addClass('active');
