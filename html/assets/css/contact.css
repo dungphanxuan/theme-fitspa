@@ -1,0 +1,51 @@
+.ec-label{
+    display: inline-block
+}
+
+.ec-required {
+    display: inline-block !important;
+}
+
+.ec-errorMessage {
+    margin-bottom: 25px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #DE5D50;
+}
+.agileits_mail_grid_right1 button[type="submit"] {
+    outline: none;
+    background: #ff7200;
+    color: #fff;
+    padding: .8em 3em;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border: none;
+	-webkit-transition:.5s all;
+	-moz-transition:.5s all;
+	-o-transition:.5s all;
+	-ms-transition:.5s all;
+	transition:.5s all;
+}
+
+.agileits_mail_grid_right1 button[type="submit"]:hover{
+    background:#212121;
+    color: #fff;
+}
+
+.ec-halfInput {
+    box-sizing: border-box;
+}
+.ec-halfInput input {
+    width: 45% !important;
+}
+
+.ec-required {
+    display: inline-block;
+    margin-left: .8em;
+    vertical-align: 2px;
+    color: #DE5D50;
+    font-size: 12px;
+    font-weight: normal;
+}
