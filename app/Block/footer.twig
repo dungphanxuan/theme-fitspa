@@ -62,24 +62,16 @@
 <!-- footer -->
 <div class="footer">
     <div class="container">
-        <div class="col-md-4 footer-grids">
+        <div class="col-md-7 footer-grids">
             <h3>Review</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sheets containing lorem lpsum passages sed do consectetur adipisicing elit.</p>
         </div>
-        <div class="col-md-3 footer-grids"> 
+        <div class="col-md-5 footer-grids"> 
             <h3>Contact Me</h3>
             <p>123 NewYork City USA.<br>
                 <span>Office: 908-0000</span>
                 <span>Support to: <a href="mailto:info@example.com">mail@example.com</a></span>
             </p>
-        </div>
-        <div class="col-md-5 footer-grids">
-            <h3>Subscribe</h3>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-            <form action="#" method="post">
-                <input type="email" name="email" placeholder="Enter your email" required="">
-                <input type="submit" value="">
-            </form>
         </div>
         <div class="clearfix"> </div>
     </div>
@@ -187,7 +179,7 @@ $(function() {
         if (!confirm('{{'front.tpsbooking.are_your_sure' | trans}}')) {
             return;
         }
-        $.post('{{ url('front_tpsbooking_submit') }}', {
+        {# $.post('{{ url('front_tpsbooking_submit') }}', {
             date: date,
             product_id: product_id,
             email: email,
@@ -197,7 +189,7 @@ $(function() {
             if (res.error == 0) {
                 $('#successModal').modal('show');
             }
-        });
+        }); #}
 
     });
 })
