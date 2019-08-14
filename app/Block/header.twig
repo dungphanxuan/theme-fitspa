@@ -23,7 +23,6 @@
                         <li><a href="{{ url('homepage') }}">Home</a></li>
                         <li><a href="{{ url('help_about') }}">{{ 'front.about.title' | trans }}</a></li> 
                         <li><a href="{{ url('product_list') }}?category_id=1">{{ 'front.tpsbooking.menu.services' | trans }}</a></li>
-                        <li><a href="{{ url('product_list') }}?category_id=2">{{ 'front.tpsbooking.menu.products' | trans }}</a></li>
                         <li><a href="{{ url('contact') }}">{{ 'front.contact.title' | trans }}</a></li>
                         {% if is_granted('ROLE_USER') %}
                             <li><a href="{{ url('mypage') }}">{{ 'front.block.login.mypage' | trans }}</a></li>
