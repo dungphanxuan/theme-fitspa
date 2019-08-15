@@ -10,33 +10,33 @@ file that was distributed with this source code.
 #}
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link {% if mypageno|default('') == 'index' %}active{% endif %}" 
+        <li role="presentation" class="{% if mypageno|default('') == 'index' %}active{% endif %}"><a class="nav-item nav-link {% if mypageno|default('') == 'index' %}active{% endif %}" 
             href="{{ url('mypage') }}"
             role="tab" aria-controls="nav-home" aria-selected="true">
             {{ 'front.mypage.nav__history'|trans }}
-        </a>
+        </a></li>
         {% if false and BaseInfo.option_favorite_product %}
-            <a class="nav-item nav-link {% if mypageno|default('') == 'favorite' %}active{% endif %}" 
+            <li role="presentation" class="{% if mypageno|default('') == 'favorite' %}active{% endif %}"><a class="nav-item nav-link {% if mypageno|default('') == 'favorite' %}active{% endif %}" 
                 href="{{ url('mypage_favorite') }}"
                 role="tab" aria-controls="nav-home" aria-selected="true">
                 {{ 'front.mypage.nav__favorite'|trans }}
-            </a>
+            </a></li>
         {% endif %}
-        <a class="nav-item nav-link {% if mypageno|default('') == 'change' %}active{% endif %}" 
+        <li role="presentation" class="{% if mypageno|default('') == 'change' %}active{% endif %}"><a class="nav-item nav-link {% if mypageno|default('') == 'change' %}active{% endif %}" 
             href="{{ url('mypage_change') }}"
             role="tab" aria-controls="nav-home" aria-selected="true">
             {{ 'front.mypage.nav__customer'|trans }}
-        </a>
-        <a class="nav-item nav-link {% if mypageno|default('') == 'delivery' %}active{% endif %}" 
+        </a></li>
+        <li role="presentation" class="{% if mypageno|default('') == 'delivery' %}active{% endif %}"><a class="nav-item nav-link {% if mypageno|default('') == 'delivery' %}active{% endif %}" 
             href="{{ url('mypage_delivery') }}"
             role="tab" aria-controls="nav-home" aria-selected="true">
             {{ 'front.mypage.nav__customer_address'|trans }}
-        </a>
-        <a class="nav-item nav-link {% if mypageno|default('') == 'withdraw' %}active{% endif %}" 
+        </a></liv>
+        <li role="presentation" class="{% if mypageno|default('') == 'withdraw' %}active{% endif %}"><a class="nav-item nav-link {% if mypageno|default('') == 'withdraw' %}active{% endif %}" 
             href="{{ url('mypage_withdraw') }}"
             role="tab" aria-controls="nav-home" aria-selected="true">
             {{ 'front.mypage.nav__withdrow'|trans }}
-        </a>
+        </a></li>
     </div>
 </nav>
 
