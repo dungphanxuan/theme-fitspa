@@ -27,7 +27,7 @@
                         <li><a href="{{ url('contact') }}">{{ 'front.contact.title' | trans }}</a></li>
                         {% if is_granted('ROLE_USER') %}
                             <li><a href="{{ url('mypage') }}">{{ 'front.block.login.mypage' | trans }}</a></li>
-                            <li><a href="{{ url('logout') }}">{{ 'front.block.login.logout' | trans }}</a></li>
+                            <li><a href="{{ url('logout') }}" title="{{ 'front.block.login.logout' | trans }}">X</a></li>
                         {% else %}
                             <li><a href="{{ url('mypage_login') }}">{{ 'common.login' | trans }}</a></li>
                         {% endif %}

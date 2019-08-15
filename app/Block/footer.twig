@@ -187,7 +187,7 @@ $(function() {
         if (!confirm('{{'front.tpsbooking.are_your_sure' | trans}}')) {
             return;
         }
-        $.post('{{ url('front_tpsbooking_submit') }}', {
+        {# $.post('{{ url('front_tpsbooking_submit') }}', {
             date: date,
             product_id: product_id,
             email: email,
@@ -197,7 +197,7 @@ $(function() {
             if (res.error == 0) {
                 $('#successModal').modal('show');
             }
-        });
+        }); #}
 
     });
 })

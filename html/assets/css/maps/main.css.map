@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.scss"],"names":[],"mappings":"AAAA;EACI,WAAU,EAIb;EALD;IAGQ,YAAW,EACd","file":"../main.css","sourcesContent":["body#cuchuoi {\n    color: red;\n    #hh {\n        color: blue;\n    }\n}"]}
