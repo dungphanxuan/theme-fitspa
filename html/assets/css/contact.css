@@ -38,7 +38,10 @@
     box-sizing: border-box;
 }
 .ec-halfInput input {
-    width: 45% !important;
+    width: 49% !important;
+}
+.ec-halfInput input:nth-child(2) {
+    float: right;
 }
 
 .ec-required {
