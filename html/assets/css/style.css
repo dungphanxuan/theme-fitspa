@@ -958,7 +958,8 @@ h2.resp-accordion {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 110px;
+  width: 150px;
+  text-align: center;
 	font-weight: bold;
 	font-size: 1em;
 	color: #ffffff;

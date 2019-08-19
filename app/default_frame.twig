@@ -52,15 +52,22 @@ file that was distributed with this source code.
     {% block stylesheet %}{% endblock %}
     <script>
         $(function() {
+            var split_uri = '{{ app.request.uri }}'.split('/');
+            var mypage = split_uri.find(val => val === 'mypage')
             $.ajaxSetup({
                 'headers': {
                     'ECCUBE-CSRF-TOKEN': $('meta[name="eccube-csrf-token"]').attr('content')
                 }
             });
             $('.nav.navbar-nav li').each(function() {
-                if ('{{ app.request.uri }}' == $(this).find('a').attr('href')) {
-                    $(this).find('a').addClass('active');
+                if (mypage !== undefined) {
+                    if ($(this).find('a').attr('href').indexOf(mypage) > -1)
+                        $(this).find('a').addClass('active');
                 }
+                else
+                    if ('{{ app.request.uri }}' == $(this).find('a').attr('href')) {
+                                    $(this).find('a').addClass('active');
+                    }
             })
         });
     </script>
